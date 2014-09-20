@@ -70,6 +70,7 @@ define build-art-executable
   ifeq ($$(art_target_or_host),target)
     LOCAL_CLANG := $(ART_TARGET_CLANG)
     LOCAL_CFLAGS += $(ART_TARGET_CFLAGS)
+    LOCAL_CFLAGS += -Ofast
     ifeq ($$(art_ndebug_or_debug),debug)
       LOCAL_CFLAGS += $(ART_TARGET_DEBUG_CFLAGS)
     else
@@ -84,6 +85,8 @@ define build-art-executable
       LOCAL_CFLAGS += $(ART_HOST_NON_DEBUG_CFLAGS)
     endif
   endif
+
+  LOCAL_CFLAGS += -Ofast
 
   ifeq ($$(art_ndebug_or_debug),ndebug)
     LOCAL_SHARED_LIBRARIES += libart

@@ -115,7 +115,7 @@ art_cflags := \
 	-Werror \
 	-Wextra \
 	-Wstrict-aliasing=3 \
-	-fstrict-aliasing
+	-fstrict-aliasing -Ofast
 
 ifeq ($(ART_SMALL_MODE),true)
   art_cflags += -DART_SMALL_MODE=1

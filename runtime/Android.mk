@@ -329,6 +329,7 @@ $$(ENUM_OPERATOR_OUT_GEN): $$(GENERATED_SRC_DIR)/%_operator_out.cc : $(LOCAL_PAT
       LOCAL_CFLAGS += $(ART_HOST_NON_DEBUG_CFLAGS)
     endif
   endif
+  LOCAL_CFLAGS += -Ofast
   LOCAL_C_INCLUDES += $(ART_C_INCLUDES)
   LOCAL_SHARED_LIBRARIES += liblog libnativehelper
   LOCAL_SHARED_LIBRARIES += libcorkscrew # native stack trace support

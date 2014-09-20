@@ -165,6 +165,7 @@ $$(ENUM_OPERATOR_OUT_GEN): $$(GENERATED_SRC_DIR)/%_operator_out.cc : $(LOCAL_PAT
   ifeq ($$(art_target_or_host),target)
     LOCAL_CLANG := $(ART_TARGET_CLANG)
     LOCAL_CFLAGS += $(ART_TARGET_CFLAGS)
+    LOCAL_LDFLAGS += -march=armv7-a
   else # host
     LOCAL_CLANG := $(ART_HOST_CLANG)
     LOCAL_CFLAGS += $(ART_HOST_CFLAGS)
@@ -172,6 +173,8 @@ $$(ENUM_OPERATOR_OUT_GEN): $$(GENERATED_SRC_DIR)/%_operator_out.cc : $(LOCAL_PAT
 
   # TODO: clean up the compilers and remove this.
   LOCAL_CFLAGS += -Wno-unused-parameter
+
+  LOCAL_CFLAGS += -Ofast
 
   LOCAL_SHARED_LIBRARIES += liblog
   ifeq ($$(art_ndebug_or_debug),debug)

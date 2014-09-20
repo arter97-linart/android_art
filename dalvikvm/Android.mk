@@ -16,7 +16,7 @@
 
 LOCAL_PATH := $(call my-dir)
 
-dalvikvm_cflags := -Wall -Werror -Wextra
+dalvikvm_cflags := -Wall -Werror -Wextra -Ofast
 
 include $(CLEAR_VARS)
 LOCAL_MODULE := dalvikvm
@@ -24,6 +24,7 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_CPP_EXTENSION := cc
 LOCAL_SRC_FILES := dalvikvm.cc
 LOCAL_CFLAGS := $(dalvikvm_cflags)
+LOCAL_CFLAGS += -Ofast
 LOCAL_SHARED_LIBRARIES := libdl libnativehelper
 LOCAL_ADDITIONAL_DEPENDENCIES := $(LOCAL_PATH)/Android.mk
 include external/stlport/libstlport.mk
@@ -37,6 +38,7 @@ LOCAL_MODULE_TAGS := optional
 LOCAL_CPP_EXTENSION := cc
 LOCAL_SRC_FILES := dalvikvm.cc
 LOCAL_CFLAGS := $(dalvikvm_cflags)
+LOCAL_CFLAGS += -Ofast
 LOCAL_SHARED_LIBRARIES := libnativehelper
 LOCAL_LDFLAGS := -ldl
 LOCAL_ADDITIONAL_DEPENDENCIES := $(LOCAL_PATH)/Android.mk
